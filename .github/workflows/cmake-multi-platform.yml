@@ -55,8 +55,8 @@ jobs:
         python-version: 3.9
     - name: env setup
       run: |
-        conda create -n habitat python=3.9 cmake
-        conda activate habitat
+        conda init
+        conda install cmake
         pip install -r requirements.txt
     -  name: build habitat sim
        run: |
