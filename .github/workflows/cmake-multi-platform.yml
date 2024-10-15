@@ -60,4 +60,4 @@ jobs:
         conda run pip install -r requirements.txt
     -  name: conda run build habitat sim
        run: |
-        python setup.py install
+        python setup.py install --user
