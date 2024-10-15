@@ -48,15 +48,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
     - name: set up env
+      if: runner.os == 'Linux'
       run: |
         echo "$RUNNER_OS"
-        if [ "$RUNNER_OS" == "Linux" ]; then
-          sudo apt-get update || true
-          # These are fairly ubiquitous packages and your system likely has them already,
-          # but if not, let's get the essentials for EGL support:
-          sudo apt-get install -y --no-install-recommends \
-               libjpeg-dev libglm-dev libgl1-mesa-glx libegl1-mesa-dev mesa-utils xorg-dev freeglut3-dev
-        fi
+        
+        sudo apt-get update || true
+        # These are fairly ubiquitous packages and your system likely has them already,
+        # but if not, let's get the essentials for EGL support:
+        sudo apt-get install -y --no-install-recommends \
+             libjpeg-dev libglm-dev libgl1-mesa-glx libegl1-mesa-dev mesa-utils xorg-dev freeglut3-dev
 
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v2
