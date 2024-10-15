@@ -57,7 +57,7 @@ jobs:
       run: |
         conda install cmake
         echo "hello"
-        pip install -r requirements.txt
+        conda run pip install -r requirements.txt
     -  name: build habitat sim
        run: |
         python setup.py install
