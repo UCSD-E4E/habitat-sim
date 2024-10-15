@@ -47,6 +47,15 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+    - name: set up env
+      run: |
+        if [ "$RUNNER_OS" == "ubuntu-latest" ]; then
+          sudo apt-get update || true
+          # These are fairly ubiquitous packages and your system likely has them already,
+          # but if not, let's get the essentials for EGL support:
+          sudo apt-get install -y --no-install-recommends \
+               libjpeg-dev libglm-dev libgl1-mesa-glx libegl1-mesa-dev mesa-utils xorg-dev freeglut3-dev
+        fi
 
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v2
