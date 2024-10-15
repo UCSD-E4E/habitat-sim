@@ -56,7 +56,7 @@ jobs:
         # These are fairly ubiquitous packages and your system likely has them already,
         # but if not, let's get the essentials for EGL support:
         sudo apt-get install -y --no-install-recommends \
-             libjpeg-dev libglm-dev libgl1-mesa-glx libegl1-mesa-dev mesa-utils xorg-dev freeglut3-dev
+             libjpeg-dev libglm-dev libgl1 libglx-mesa0 libegl1-mesa-dev mesa-utils xorg-dev freeglut3-dev
 
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v2
