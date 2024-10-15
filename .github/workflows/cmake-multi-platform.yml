@@ -50,7 +50,7 @@ jobs:
     - name: set up env
       run: |
         echo "$RUNNER_OS"
-        if [ "$RUNNER_OS" == "ubuntu" ]; then
+        if [ "$RUNNER_OS" == "Linux" ]; then
           sudo apt-get update || true
           # These are fairly ubiquitous packages and your system likely has them already,
           # but if not, let's get the essentials for EGL support:
